@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         sdvHeadPortrait = (SimpleDraweeView) findViewById(R.id.nav_sdv_head_portrait);
         GenericDraweeHierarchy hierarchy = sdvHeadPortrait.getHierarchy();
         hierarchy.setPlaceholderImage(R.drawable.yasiclogo);
-        sdvHeadPortrait.setImageURI(Uri.parse("res://com.yasic.yuexing/" + R.drawable.yasiclogo));
+        sdvHeadPortrait. setImageURI(Uri.parse("res://com.yasic.yuexing/" + R.drawable.yasiclogo));
 
         toolbar.setTitle(R.string.app_name);
         setSupportActionBar(toolbar);
