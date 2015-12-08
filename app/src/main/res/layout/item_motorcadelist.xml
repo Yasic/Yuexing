@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/iv_motorcadelogo"
+        android:layout_gravity="center"
+        fresco:roundAsCircle="true"
+        fresco:actualImageScaleType="fitCenter"
+        fresco:roundedCornerRadius="16dp"
+        android:layout_width="64dp"
+        android:layout_height="64dp" />
+    <TextView
+        android:id="@+id/tv_motorcadename"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:text="Motorcade_Name"/>
+</LinearLayout>
