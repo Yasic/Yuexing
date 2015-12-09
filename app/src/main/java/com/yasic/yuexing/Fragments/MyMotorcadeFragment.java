@@ -1,5 +1,6 @@
 package com.yasic.yuexing.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -9,8 +10,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
+import com.yasic.yuexing.Activitys.MyMotorcadeDetailActivity;
 import com.yasic.yuexing.Adapters.MyMotorcadeAdapter;
 import com.yasic.yuexing.Objects.Motorcade;
 import com.yasic.yuexing.R;
@@ -54,17 +57,27 @@ public class MyMotorcadeFragment extends Fragment {
     }
 
     private void initView(){
-        motorcadeList.add(new Motorcade("车队1", "yasic", R.drawable.headimg10));
-        motorcadeList.add(new Motorcade("车队2", "yasic", R.drawable.headimg10));
-        motorcadeList.add(new Motorcade("车队3", "yasic", R.drawable.headimg10));
-        motorcadeList.add(new Motorcade("车队4", "yasic", R.drawable.headimg10));
-        motorcadeList.add(new Motorcade("车队5", "yasic", R.drawable.headimg10));
-        motorcadeList.add(new Motorcade("车队6", "yasic", R.drawable.headimg10));
+        motorcadeList.add(new Motorcade("中游记", "余烜Yasic", R.drawable.headimg10, "队长", "2015-11-24"));
+        motorcadeList.add(new Motorcade("穷游一大队", "王超", R.drawable.headimg9, "队员", "2015-11-26"));
+        motorcadeList.add(new Motorcade("不安定人群集中营", "沈秋彤", R.drawable.headimg8, "队员", "2015-11-24"));
         myMotorcadeAdapter = new MyMotorcadeAdapter(getActivity(), motorcadeList);
+        myMotorcadeAdapter.setOnItemClickListener(new MyMotorcadeAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View v, int position) {
+                Intent intent = new Intent(getActivity(), MyMotorcadeDetailActivity.class);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onItemLongCick(View v, int position) {
+
+            }
+        });
+
         rvMyMotorcade = (RecyclerView)rootView.findViewById(R.id.rv_mymotorcade);
         rvMyMotorcade.setAdapter(myMotorcadeAdapter);
-        rvMyMotorcade.setLayoutManager(new GridLayoutManager(getActivity(), 3));
-        //rvMyMotorcade.setLayoutManager(new LinearLayoutManager(getActivity()));
+        /*rvMyMotorcade.setLayoutManager(new GridLayoutManager(getActivity(), 3));*/
+        rvMyMotorcade.setLayoutManager(new LinearLayoutManager(getActivity()));
         rvMyMotorcade.setItemAnimator(new DefaultItemAnimator());
     }
 }
