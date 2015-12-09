@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="4dp">
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/sdv_head_portrait"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        fresco:roundAsCircle="true"
+        fresco:actualImageScaleType="fitCenter"
+        fresco:roundedCornerRadius="16dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:orientation="vertical"
+        android:gravity="center_vertical">
+        <TextView
+            android:id="@+id/tv_chatername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/secondText"
+            android:textSize="15sp"
+            android:text="Chater_Name"/>
+        <TextView
+            android:id="@+id/tv_chatermessagetime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/secondText"
+            android:textSize="13sp"
+            android:text="ChatMessage_Time"/>
+    </LinearLayout>
+</LinearLayout>

@@ -57,14 +57,18 @@ public class MyMotorcadeFragment extends Fragment {
     }
 
     private void initView(){
-        motorcadeList.add(new Motorcade("中游记", "余烜Yasic", R.drawable.headimg10, "队长", "2015-11-24"));
-        motorcadeList.add(new Motorcade("穷游一大队", "王超", R.drawable.headimg9, "队员", "2015-11-26"));
+        motorcadeList.add(new Motorcade("熊猫游学者", "余烜Yasic", R.drawable.headimg10, "队长", "2015-11-24"));
+        motorcadeList.add(new Motorcade("假期出游小队", "王超", R.drawable.headimg9, "队员", "2015-11-26"));
         motorcadeList.add(new Motorcade("不安定人群集中营", "沈秋彤", R.drawable.headimg8, "队员", "2015-11-24"));
         myMotorcadeAdapter = new MyMotorcadeAdapter(getActivity(), motorcadeList);
         myMotorcadeAdapter.setOnItemClickListener(new MyMotorcadeAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View v, int position) {
                 Intent intent = new Intent(getActivity(), MyMotorcadeDetailActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("MOTORCADE_NAME",motorcadeList.get(position).getMotorcadeName());
+                bundle.putString("MOTORCADE_MONITOR",motorcadeList.get(position).getMotocadeMonitor());
+                intent.putExtras(bundle);
                 startActivity(intent);
             }
 

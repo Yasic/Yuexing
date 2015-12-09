@@ -1,5 +1,6 @@
 package com.yasic.yuexing.Activitys;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
@@ -48,11 +49,22 @@ public class MyMotorcadeDetailActivity extends AppCompatActivity {
      */
     private List<Fragment> fragmentList;
 
+    /**
+     * 车队名称
+     */
+    private String motorcadeName;
+
+    /**
+     * 车队队长
+     */
+    private String motorcademonitor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Fresco.initialize(this);
         setContentView(R.layout.activity_mymortocadedetail);
+        getBundle();
         initToolbarAndDrawer();
         init();
     }
@@ -64,21 +76,11 @@ public class MyMotorcadeDetailActivity extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.tb_main);
 
-        /*DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.OpenNav, R.string.CloseNav);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();*/
-
-        /*NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);*/
-
-        /*sdvHeadPortrait = (SimpleDraweeView) findViewById(R.id.nav_sdv_head_portrait);
-        GenericDraweeHierarchy hierarchy = sdvHeadPortrait.getHierarchy();
-        hierarchy.setPlaceholderImage(R.drawable.yasiclogo);
-        sdvHeadPortrait. setImageURI(Uri.parse("res://com.yasic.yuexing/" + R.drawable.yasiclogo));*/
-
-        toolbar.setTitle(R.string.app_name);
+        if(motorcadeName.length() != 0){
+            toolbar.setTitle(motorcadeName);
+        }else {
+            toolbar.setTitle(R.string.app_name);
+        }
         setSupportActionBar(toolbar);
         //toolbar.setNavigationIcon(R.drawable.ic_menu_white_24dp);
         /*toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -133,5 +135,15 @@ public class MyMotorcadeDetailActivity extends AppCompatActivity {
         fragmentList.add(new MotorcadeChatFragment());
         fragmentList.add(new FindMotorcadeFragment());
         fragmentList.add(new FindMotorcadeFragment());
+    }
+
+    /**
+     * 获取bundle值
+     */
+    private void getBundle(){
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        motorcadeName = bundle.getString("MOTORCADE_NAME");
+        motorcademonitor = bundle.getString("MOTORCADE_MONITOR");
     }
 }
