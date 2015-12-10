@@ -17,17 +17,17 @@ public class ChatMessage {
     /**
      * 聊天时间
      */
-    private String chaterTime;
+    private String chaterMessageTime;
 
     /**
      * 聊天信息
      */
     private String chateMessage;
 
-    public ChatMessage(String chaterName, int chaterHeadPortrait, String chaterTime, String chateMessage){
+    public ChatMessage(String chaterName, int chaterHeadPortrait, String chaterMessageTime, String chateMessage){
         this.chaterName = chaterName;
         this.chaterHeadPortrait = chaterHeadPortrait;
-        this.chaterTime = chaterTime;
+        this.chaterMessageTime = chaterMessageTime;
         this.chateMessage = chateMessage;
     }
 
@@ -39,8 +39,8 @@ public class ChatMessage {
         this.chaterHeadPortrait = chaterHeadPortrait;
     }
 
-    public void setChaterTime(String chaterTime) {
-        this.chaterTime = chaterTime;
+    public void setChaterMessageTime(String chaterMessageTime) {
+        this.chaterMessageTime = chaterMessageTime;
     }
 
     public void setChateMessage(String chateMessage) {
@@ -56,8 +56,8 @@ public class ChatMessage {
         return chaterHeadPortrait;
     }
 
-    public String getChaterTime() {
-        return chaterTime;
+    public String getChaterMessageTime() {
+        return chaterMessageTime;
     }
 
     public String getChateMessage() {

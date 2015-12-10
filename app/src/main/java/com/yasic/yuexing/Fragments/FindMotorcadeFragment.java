@@ -3,6 +3,7 @@ package com.yasic.yuexing.Fragments;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -50,15 +51,16 @@ public class FindMotorcadeFragment extends Fragment {
     }
 
     private void initView(){
-        motorcadeTypeList.add(new MotorcadeType("国内旅游"));
-        motorcadeTypeList.add(new MotorcadeType("自由飞车"));
-        motorcadeTypeList.add(new MotorcadeType("跨境远行"));
-        motorcadeTypeList.add(new MotorcadeType("亲友团"));
-        motorcadeTypeList.add(new MotorcadeType("兴趣之上"));
+        motorcadeTypeList.add(new MotorcadeType("国内旅游", R.drawable.findmotorcade_img1));
+        motorcadeTypeList.add(new MotorcadeType("跨境远行", R.drawable.findmotorcade_img2));
+        motorcadeTypeList.add(new MotorcadeType("城市飞车", R.drawable.findmotorcade_img6));
+        motorcadeTypeList.add(new MotorcadeType("亲友团", R.drawable.findmotorcade_img4));
+        motorcadeTypeList.add(new MotorcadeType("兴趣至上", R.drawable.findmotorcade_img5));
+        motorcadeTypeList.add(new MotorcadeType("周末党", R.drawable.findmotorcade_img3));
         findMotorcadeTypeAdapter = new FindMotorcadeTypeAdapter(getActivity(), motorcadeTypeList);
         rvFindMotorcadeType = (RecyclerView)rootView.findViewById(R.id.rv_findmotorcade_motorcadetype);
         rvFindMotorcadeType.setAdapter(findMotorcadeTypeAdapter);
-        rvFindMotorcadeType.setLayoutManager(new LinearLayoutManager(getActivity()));
+        rvFindMotorcadeType.setLayoutManager(new GridLayoutManager(getActivity(), 2));
         rvFindMotorcadeType.setItemAnimator(new DefaultItemAnimator());
     }
 }

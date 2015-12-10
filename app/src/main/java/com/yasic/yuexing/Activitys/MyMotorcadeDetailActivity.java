@@ -1,5 +1,6 @@
 package com.yasic.yuexing.Activitys;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -13,7 +14,9 @@ import android.view.View;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.yasic.yuexing.Adapters.ViewPagerAdapter;
 import com.yasic.yuexing.Fragments.FindMotorcadeFragment;
+import com.yasic.yuexing.Fragments.MoreFunctionFragment;
 import com.yasic.yuexing.Fragments.MotorcadeChatFragment;
+import com.yasic.yuexing.Fragments.MotorcadeMemberFragment;
 import com.yasic.yuexing.R;
 
 import java.util.ArrayList;
@@ -133,8 +136,8 @@ public class MyMotorcadeDetailActivity extends AppCompatActivity {
         titleList.add("车队成员");
         titleList.add("车队详情");
         fragmentList.add(new MotorcadeChatFragment());
-        fragmentList.add(new FindMotorcadeFragment());
-        fragmentList.add(new FindMotorcadeFragment());
+        fragmentList.add(new MotorcadeMemberFragment());
+        fragmentList.add(new MoreFunctionFragment());
     }
 
     /**

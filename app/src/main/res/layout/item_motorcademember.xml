@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_marginTop="4dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/sdv_head_portrait"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        fresco:roundAsCircle="true"
+        fresco:actualImageScaleType="fitCenter"
+        fresco:roundedCornerRadius="12dp"/>
+    <TextView
+        android:id="@+id/tv_membername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Member_Name"
+        android:textSize="15sp"
+        android:textColor="@color/secondText"/>
+    <TextView
+        android:id="@+id/tv_membertype"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Member_Type"
+        android:textSize="15sp"
+        android:textColor="@color/secondText"/>
+</LinearLayout>

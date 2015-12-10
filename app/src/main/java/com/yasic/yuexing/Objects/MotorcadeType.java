@@ -9,8 +9,22 @@ public class MotorcadeType {
      */
     private String motorcadeTypeName;
 
+    /**
+     * 分类图片
+     */
+    private int motorcadeTypeLogo;
+
     public MotorcadeType(String motorcadeTypeName){
         this.motorcadeTypeName = motorcadeTypeName;
+    }
+
+    public MotorcadeType(String motorcadeTypeName, int motorcadeTypeLogo){
+        this.motorcadeTypeName = motorcadeTypeName;
+        this.motorcadeTypeLogo = motorcadeTypeLogo;
+    }
+
+    public void setMotorcadeTypeLogo(int motorcadeTypeLogo) {
+        this.motorcadeTypeLogo = motorcadeTypeLogo;
     }
 
     public void setMotorcadeTypeName(String motorcadeTypeName) {
@@ -19,5 +33,9 @@ public class MotorcadeType {
 
     public String getMotorcadeTypeName() {
         return motorcadeTypeName;
+    }
+
+    public int getMotorcadeTypeLogo() {
+        return motorcadeTypeLogo;
     }
 }

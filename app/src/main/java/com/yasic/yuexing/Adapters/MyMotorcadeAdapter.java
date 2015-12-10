@@ -53,7 +53,7 @@ public class MyMotorcadeAdapter extends RecyclerView.Adapter<MyMotorcadeAdapter.
         if (motorcadeList.size() != 0) {
             Motorcade motorcade = motorcadeList.get(position);
             GenericDraweeHierarchy hierarchy = holder.ivMotorcadeLogo.getHierarchy();
-            hierarchy.setPlaceholderImage(motorcade.getMotorLogo());
+            hierarchy.setPlaceholderImage(null);
             holder.ivMotorcadeLogo.setImageURI(Uri.parse("res://com.yasic.yuexing/" + motorcade.getMotorLogo()));
             holder.tvMotorcadeName.setText(motorcade.getMotorcadeName());
             holder.tvMotorcadeType.setText(motorcade.getMotorcadeType());

@@ -1,12 +1,15 @@
 package com.yasic.yuexing.Adapters;
 
 import android.content.Context;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.facebook.drawee.generic.GenericDraweeHierarchy;
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.yasic.yuexing.Objects.Motorcade;
 import com.yasic.yuexing.Objects.MotorcadeType;
 import com.yasic.yuexing.R;
@@ -44,6 +47,9 @@ public class FindMotorcadeTypeAdapter extends RecyclerView.Adapter<FindMotorcade
         if (motorcadeTypeList.size() != 0){
             MotorcadeType motorcadeType = motorcadeTypeList.get(position);
             holder.tvMotorcadeTypeName.setText(motorcadeType.getMotorcadeTypeName());
+            GenericDraweeHierarchy hierarchy = holder.sdvMotorcadeTypeLogo.getHierarchy();
+            hierarchy.setPlaceholderImage(null);
+            holder.sdvMotorcadeTypeLogo.setImageURI(Uri.parse("res://com.yasic.yuexing/" + motorcadeType.getMotorcadeTypeLogo()));
         }
     }
 
@@ -53,10 +59,20 @@ public class FindMotorcadeTypeAdapter extends RecyclerView.Adapter<FindMotorcade
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
+        /**
+         * 显示车队分类名称的textview
+         */
         private TextView tvMotorcadeTypeName;
+
+        /**
+         * 显示车队分类图片
+         */
+        private SimpleDraweeView sdvMotorcadeTypeLogo;
+
         public MyViewHolder(View itemView) {
             super(itemView);
             tvMotorcadeTypeName = (TextView)itemView.findViewById(R.id.tv_motorcadetypename);
+            sdvMotorcadeTypeLogo = (SimpleDraweeView)itemView.findViewById(R.id.sdv_motorcadetype_logo);
         }
     }
 }

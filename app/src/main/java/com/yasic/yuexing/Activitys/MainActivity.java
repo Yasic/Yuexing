@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
      */
     private SimpleDraweeView sdvHeadPortrait;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
