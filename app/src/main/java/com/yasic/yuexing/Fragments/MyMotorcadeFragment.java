@@ -56,6 +56,13 @@ public class MyMotorcadeFragment extends Fragment {
         return rootView;
     }
 
+    @Override
+    public void onDestroy(){
+        motorcadeList.clear();
+        rootView = null;
+        super.onDestroy();
+    }
+
     private void initView(){
         motorcadeList.add(new Motorcade("熊猫游学者", "余烜Yasic", R.drawable.headimg10, "队长", "2015-11-24"));
         motorcadeList.add(new Motorcade("假期出游小队", "王超", R.drawable.headimg9, "队员", "2015-11-26"));

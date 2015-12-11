@@ -58,7 +58,6 @@ public class MyMotorcadeAdapter extends RecyclerView.Adapter<MyMotorcadeAdapter.
             holder.tvMotorcadeName.setText(motorcade.getMotorcadeName());
             holder.tvMotorcadeType.setText(motorcade.getMotorcadeType());
             holder.tvMotorcadeFoundTime.setText(motorcade.getMotorcadeFoundTime());
-
             if (onItemClickListener != null) {
                 holder.liMotorcadeList.setOnClickListener(new View.OnClickListener() {
                     @Override

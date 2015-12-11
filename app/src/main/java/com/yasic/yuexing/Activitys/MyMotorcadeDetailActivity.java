@@ -16,6 +16,7 @@ import com.yasic.yuexing.Adapters.ViewPagerAdapter;
 import com.yasic.yuexing.Fragments.FindMotorcadeFragment;
 import com.yasic.yuexing.Fragments.MoreFunctionFragment;
 import com.yasic.yuexing.Fragments.MotorcadeChatFragment;
+import com.yasic.yuexing.Fragments.MotorcadeDetailFragment;
 import com.yasic.yuexing.Fragments.MotorcadeMemberFragment;
 import com.yasic.yuexing.R;
 
@@ -45,12 +46,12 @@ public class MyMotorcadeDetailActivity extends AppCompatActivity {
     /**
      * 装viewpager的每一个界面的list
      */
-    private List<String> titleList;
+    private List<String> titleList = new ArrayList<>();
 
     /**
      * 装fragment的每一个对象的list
      */
-    private List<Fragment> fragmentList;
+    private List<Fragment> fragmentList = new ArrayList<>();
 
     /**
      * 车队名称
@@ -70,6 +71,13 @@ public class MyMotorcadeDetailActivity extends AppCompatActivity {
         getBundle();
         initToolbarAndDrawer();
         init();
+    }
+
+    @Override
+    protected void onDestroy(){
+        titleList.clear();
+        fragmentList.clear();
+        super.onDestroy();
     }
 
     /**
@@ -103,6 +111,7 @@ public class MyMotorcadeDetailActivity extends AppCompatActivity {
         fab.clearAnimation();
         fab.cancelLongPress();
         fab.setAnimation(null);
+        fab.setVisibility(View.GONE);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
@@ -130,14 +139,12 @@ public class MyMotorcadeDetailActivity extends AppCompatActivity {
      * 初始化两个list的方法
      */
     private void initList() {
-        titleList = new ArrayList<>();
-        fragmentList = new ArrayList<>();
         titleList.add("队内聊天");
         titleList.add("车队成员");
         titleList.add("车队详情");
         fragmentList.add(new MotorcadeChatFragment());
         fragmentList.add(new MotorcadeMemberFragment());
-        fragmentList.add(new MoreFunctionFragment());
+        fragmentList.add(new MotorcadeDetailFragment());
     }
 
     /**
@@ -148,5 +155,16 @@ public class MyMotorcadeDetailActivity extends AppCompatActivity {
         Bundle bundle = intent.getExtras();
         motorcadeName = bundle.getString("MOTORCADE_NAME");
         motorcademonitor = bundle.getString("MOTORCADE_MONITOR");
+    }
+
+    /**
+     * 获取车队名称
+     * @return 返回车队名称
+     */
+    public String getMotorcadeName(){
+        if(motorcadeName != null){
+            return motorcadeName;
+        }
+        else return "";
     }
 }

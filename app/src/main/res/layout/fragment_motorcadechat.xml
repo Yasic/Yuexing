@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="4dp">
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_motorcadechat"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-</LinearLayout>
+        android:layout_height="match_parent"
+        android:layout_above="@+id/rl_edittextarea"/>
+    <RelativeLayout
+        android:id="@+id/rl_edittextarea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="54dp"/>
+        <com.gc.materialdesign.views.ButtonFlat
+            android:layout_width="54dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="发送"/>
+    </RelativeLayout>
+</RelativeLayout>

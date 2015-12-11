@@ -51,18 +51,16 @@ public class MotorcadeChatFragment extends Fragment {
         return rootView;
     }
 
-
-
     private void initView(){
         rvMotorcadeChat = (RecyclerView)rootView.findViewById(R.id.rv_motorcadechat);
         chatMessageList.add(new ChatMessage("王超", R.drawable.headimg1, "10:50", "我们的目标是---"));
         chatMessageList.add(new ChatMessage("沈秋彤", R.drawable.headimg2, "10:51", "没有蛀牙！"));
         chatMessageList.add(new ChatMessage("梁昊阳", R.drawable.headimg3, "10:52", "没有蛀牙！"));
         chatMessageList.add(new ChatMessage("xx", R.drawable.headimg4, "10:52", "没有蛀牙！"));
-        /*chatMessageList.add(new ChatMessage("王超", R.drawable.headimg1, "10:50", "报数！"));
+        chatMessageList.add(new ChatMessage("王超", R.drawable.headimg1, "10:50", "报数！"));
         chatMessageList.add(new ChatMessage("沈秋彤", R.drawable.headimg2, "10:51", "1！"));
         chatMessageList.add(new ChatMessage("梁昊阳", R.drawable.headimg3, "10:52", "2！"));
-        chatMessageList.add(new ChatMessage("xx", R.drawable.headimg4, "10:52", "3！"));*/
+        chatMessageList.add(new ChatMessage("xx", R.drawable.headimg4, "10:52", "3！"));
         motorcadeChatAdapter = new MotorcadeChatAdapter(getActivity(), chatMessageList);
         rvMotorcadeChat.setAdapter(motorcadeChatAdapter);
         rvMotorcadeChat.setLayoutManager(new LinearLayoutManager(getActivity()));

@@ -73,6 +73,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         init();
     }
 
+    @Override
+    protected void onDestroy(){
+        fragmentList.clear();
+        sdvHeadPortrait = null;
+        super.onDestroy();
+    }
+
     /**
      * 初始化toolbar的方法
      */
@@ -180,4 +187,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = menuItem.getItemId();
         return false;
     }
+
 }
