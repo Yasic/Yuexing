@@ -1,5 +1,6 @@
 package com.yasic.yuexing.Fragments;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
@@ -19,6 +21,8 @@ import com.yasic.yuexing.Activitys.MyMotorcadeDetailActivity;
 import com.yasic.yuexing.Adapters.MyMotorcadeAdapter;
 import com.yasic.yuexing.Objects.Motorcade;
 import com.yasic.yuexing.R;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,6 +52,13 @@ public class MyMotorcadeFragment extends Fragment {
      */
     private RecyclerView rvMyMotorcade;
 
+    private TextView testTextview;
+
+    @Override
+    public void onAttach(Context context){
+        super.onAttach(context);
+    }
+
     @Override
     public void onCreate(Bundle bundle){
         super.onCreate(bundle);
@@ -61,6 +72,8 @@ public class MyMotorcadeFragment extends Fragment {
             rootView = inflater.inflate(R.layout.fragment_mymotorcade, container, false);
             Fresco.initialize(getActivity());
             initView();
+            testTextview = (TextView)rootView.findViewById(R.id.testTextview);
+            testTextview.setText(getArguments().getString("test"));
         }
         return rootView;
     }
