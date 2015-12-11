@@ -7,6 +7,8 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,6 +47,13 @@ public class MyMotorcadeFragment extends Fragment {
      * 我的车队recyclerview
      */
     private RecyclerView rvMyMotorcade;
+
+    @Override
+    public void onCreate(Bundle bundle){
+        super.onCreate(bundle);
+        Bundle bundle1 = getArguments();
+        Log.i("test",bundle1.getString("test")+" "+getArguments().containsKey("test"));
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -90,5 +99,9 @@ public class MyMotorcadeFragment extends Fragment {
         /*rvMyMotorcade.setLayoutManager(new GridLayoutManager(getActivity(), 3));*/
         rvMyMotorcade.setLayoutManager(new LinearLayoutManager(getActivity()));
         rvMyMotorcade.setItemAnimator(new DefaultItemAnimator());
+    }
+
+    public void testDataPost(){
+        Toast.makeText(getActivity(),"test",Toast.LENGTH_LONG).show();
     }
 }

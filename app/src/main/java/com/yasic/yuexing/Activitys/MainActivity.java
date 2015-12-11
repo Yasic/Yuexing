@@ -63,6 +63,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
      */
     private SimpleDraweeView sdvHeadPortrait;
 
+    private MyMotorcadeFragment myMotorcadeFragment;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,6 +130,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 view.getLocationOnScreen(startingLocation);
                 startingLocation[0] += view.getWidth() / 2;
                 overridePendingTransition(0, 0);
+                myMotorcadeFragment.testDataPost();
 //                Intent intent = new Intent(MainActivity.this, PostRequestActivity.class);
 //                startActivity(intent);
 //                NotificationLab.getInstance().addNotification(new Notification());
@@ -138,10 +141,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         tlMain = (TabLayout) findViewById(R.id.tl_main);
         vpMain = (ViewPager) findViewById(R.id.vp_main);
-
         vpMain.setAdapter(new ViewPagerAdapter(getSupportFragmentManager(), titleList, fragmentList));
+        //vpMain.setCurrentItem(0);
         tlMain.setupWithViewPager(vpMain);
         tlMain.setTabMode(TabLayout.MODE_FIXED);
+        getSupportFragmentManager().beginTransaction().commit();
     }
 
     /**
@@ -154,7 +158,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         titleList.add("我的车队");
         titleList.add("发现车队");
         titleList.add("更多");
-        fragmentList.add(new MyMotorcadeFragment());
+        fragmentList.add(myMotorcadeFragment = new MyMotorcadeFragment());
+        Bundle bundle = new Bundle();
+        bundle.putString("test","test");
+        myMotorcadeFragment.setArguments(bundle);
         fragmentList.add(new FindMotorcadeFragment());
         fragmentList.add(new MoreFunctionFragment());
         //fragmentList.add(new MyselfFragment());
