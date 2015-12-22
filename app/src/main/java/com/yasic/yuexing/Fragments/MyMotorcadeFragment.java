@@ -72,8 +72,8 @@ public class MyMotorcadeFragment extends Fragment {
             rootView = inflater.inflate(R.layout.fragment_mymotorcade, container, false);
             Fresco.initialize(getActivity());
             initView();
-            testTextview = (TextView)rootView.findViewById(R.id.testTextview);
-            testTextview.setText(getArguments().getString("test"));
+            //testTextview = (TextView)rootView.findViewById(R.id.testTextview);
+            //testTextview.setText(getArguments().getString("test"));
         }
         return rootView;
     }
